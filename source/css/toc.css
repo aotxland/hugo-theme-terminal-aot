@@ -1,4 +1,4 @@
-.toc {
+.post .post-toc {
     display: none;
     position: fixed;
     top: 30%;
@@ -16,7 +16,7 @@
 }
 
 
-.toc .post-toc-title {
+.post .post-toc .post-toc-title {
 
     margin: 0 10px;
     font-size: 20px;
@@ -25,19 +25,19 @@
 
 }
 
-.toc .post-toc-content ul {
+.post .post-toc .post-toc-content ul {
     list-style: square;
 }
 
-.toc .post-toc-content ul li::before {
+.post .post-toc .post-toc-content ul li::before {
     content: "";
 }
 
-.toc .active {
+.post .post-toc .active {
     color: var(--accent);
 }
 
-.toc ol ol, .post-toc ol ul, .post-toc ul ol, .post-toc ul ul {
+.post-toc ol ol, .post-toc ol ul, .post-toc ul ol, .post-toc ul ul {
     margin-top: 0px;
 }
 
