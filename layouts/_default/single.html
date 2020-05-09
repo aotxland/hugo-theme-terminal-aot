@@ -27,6 +27,9 @@
   <img src="{{ . | absURL }}" class="post-cover" />
   {{ end }}
 
+  <!-- TOC -->
+  {{- partial "toc.html" . -}}
+
   <div class="post-content">
     {{- with .Content -}}
       <div>
