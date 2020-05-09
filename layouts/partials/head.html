@@ -1,3 +1,4 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.Subtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
@@ -7,14 +8,14 @@
 {{ template "_internal/google_analytics.html" . }}
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="{{ "assets/style.min.css" | absURL }}?{{ resources.Get "assets/style.min.css" | md5}}">
+<link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
 {{ if (ne $.Site.Params.ThemeColor "orange") }}
-  <link rel="stylesheet" href="{{ (printf "assets/%s.min.css" $.Site.Params.ThemeColor) | absURL }}">
+  <link rel="stylesheet" href="{{ (printf "assets/%s.css" $.Site.Params.ThemeColor) | absURL }}">
 {{ end }}
 
-<!-- Custom CSS to override theme properties (/static/style.min.css) -->
-{{ if (fileExists "static/style.min.css") -}}
-  <link rel="stylesheet" href="{{ "style.min.css" | absURL }}">
+<!-- Custom CSS to override theme properties (/static/style.css) -->
+{{ if (fileExists "static/style.css") -}}
+  <link rel="stylesheet" href="{{ "style.css" | absURL }}">
 {{- end }}
 
 <!-- Icons -->
@@ -27,7 +28,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary" />
-{{ with $.Site.Params.Twitter.site }}
+{{ if (isset $.Site.Params.Twitter "site") }}
   <meta name="twitter:site" content="{{ $.Site.Params.Twitter.site }}" />
 {{ end }}
 <meta name="twitter:creator" content="{{ if .IsHome }}{{ $.Site.Params.Twitter.creator }}{{ else if isset .Params "authortwitter" }}{{ .Params.authorTwitter }}{{ else }}{{ .Params.Author }}{{ end }}" />
@@ -38,7 +39,7 @@
 <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:site_name" content="{{ $.Site.Title }}" />
+<meta property="og:site_name" content="{{ .Title }}" />
 {{ if and (not .IsHome) (isset .Params "cover") }}
   <meta property="og:image" content="{{ .Param "cover" | absURL }}">
 {{ else }}

@@ -9,10 +9,6 @@ paginate = 5
   showMenuItems = 2
   fullWidthTheme = false
   centerTheme = false
-  authorName = "荒野无灯"
-  # for RSS feed filter https://gohugo.io/functions/where/#mainsections
-  mainSections = ["post", "note", "docs"]
-  pageBundle = true
 
 [languages]
   [languages.en]
@@ -37,14 +33,3 @@ paginate = 5
         identifier = "showcase"
         name = "Showcase"
         url = "/showcase"
-
-[outputFormats]
-[outputFormats.RSS]
-mediatype = "application/rss"
-baseName = "atom"
-
-[author]
-    name = "荒野无灯"
-
-[markup.highlight]
-  noClasses = false
